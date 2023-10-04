@@ -5,6 +5,7 @@
 using namespace std;
 
 int solution(vector<int> elements) {
+    // 완전탐색 방식으로 풀었기 때문에 시간이 오래 걸림.
     int answer = 0;
     
     int sum = 0;

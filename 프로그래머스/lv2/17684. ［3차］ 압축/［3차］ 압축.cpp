@@ -11,11 +11,11 @@ vector<int> solution(string msg) {
     
     map<string, int> m;
     
+    string tmp;
+    
     for (int i = 1; i <= 26; i++) {
-        string str = "";
-        char ch = (char)(64 + i);
-        str += ch;
-        m.insert({str, i});
+        tmp = (char)(64 + i);
+        m.insert({tmp, i});
     }
     
     int m_len = 26;

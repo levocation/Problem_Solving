@@ -6,14 +6,11 @@ int solution(int n, vector<int> stations, int w)
 {
     int answer = 0;
     
-    vector<int> blank;
-    // 빈 공간들의 집합이 몇 개의 구역으로 나뉘는지 확인
-    // 구역별 빈 공간의 개수를 나타냄
-    
     int key = 0;
     // 5g 기지국의 위치를 임시보관
     
     int blank_count = 0;
+    // 빈 공간의 개수를 임시보관하는 변수
     
     int station_max_len = 1 + (w * 2);
     // 기지국이 발사할 수 있는 전파의 최대 길이
@@ -31,17 +28,12 @@ int solution(int n, vector<int> stations, int w)
                 // 맨 왼쪽 벽과의 거리가 있는가
 
                 blank_count = station - key - w - 1;
-                answer += (blank_count / station_max_len) 
-                    + (blank_count % station_max_len != 0);
-                
-                //blank.emplace_back(station - key - w - 1);
                 // 최대 전파의 위치와 왼쪽 벽(또는 기지국) 사이의 빈 공간의 개수
                 // 공식 : 현재 기지국 위치 - 이전 기지국 위치 
-                //       - 현재 기지국에서 흐르는 전파길이 - 이전 기지국에서 흐르는 전파길이
-                //       -1
-                // 이때 현재 기지국에서 흐르는 전파길이 = 이전 기지국에서 흐르는 전파길이
-                // 따라서 (- 현재 기지국에서 흐르는 전파길이 - 이전 기지국에서 흐르는 전파길이)
-                // = -(현재 기지국에서 흐르는 전파길이 * 2)
+                //       - 현재 기지국에서 흐르는 전파길이 -1
+                
+                answer += (blank_count / station_max_len) 
+                    + (blank_count % station_max_len != 0);
             }
         } else {
             if (station - w - 1 > key + w) {
@@ -49,9 +41,6 @@ int solution(int n, vector<int> stations, int w)
                 // 자기보다 왼쪽에 있는 5g 기지국과의 거리가 있는가
                 
                 blank_count = station - key - (2 * w) - 1;
-                answer += (blank_count / station_max_len) 
-                    + (blank_count % station_max_len != 0);
-                //blank.emplace_back(station - key - (2 * w) - 1);
                 // 최대 전파의 위치와 왼쪽 벽(또는 기지국) 사이의 빈 공간의 개수
                 // 공식 : 현재 기지국 위치 - 이전 기지국 위치 
                 //       - 현재 기지국에서 흐르는 전파길이 - 이전 기지국에서 흐르는 전파길이
@@ -59,6 +48,11 @@ int solution(int n, vector<int> stations, int w)
                 // 이때 현재 기지국에서 흐르는 전파길이 = 이전 기지국에서 흐르는 전파길이
                 // 따라서 (- 현재 기지국에서 흐르는 전파길이 - 이전 기지국에서 흐르는 전파길이)
                 // = -(현재 기지국에서 흐르는 전파길이 * 2)
+                
+                answer += (blank_count / station_max_len) 
+                    + (blank_count % station_max_len != 0);
+                
+                
 
             }
         }

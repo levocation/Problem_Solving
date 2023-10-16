@@ -1,45 +1,27 @@
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <map>
 
 using namespace std;
 
-int answer = 0;
+int total;
 
-void dfs(vector<int> numbers, int target, int depth, int sum) {
-    if (target == sum) {
-        answer++;
+void DFS(vector<int> &numbers, int &target,int sum,int n) {
+    if(n >= numbers.size()){
+        if(sum == target) total++;
         return;
-    } else if (target < sum) {
-        return;
-    } else if (depth >= numbers.size()) {
-        return;
-    } else {
-        dfs(numbers, target, depth + 1, sum + numbers[depth]);
-        dfs(numbers, target, depth + 1, sum);
     }
+
+    DFS(numbers, target, sum + numbers[n], n+1);
+    DFS(numbers, target, sum - numbers[n], n+1);
 }
 
 int solution(vector<int> numbers, int target) {
-    answer = 0;
-    int sum = 0;
-    int new_target = 0;
-    
-    for (int num : numbers) {
-        sum += num;
-    }
-    
-    if (sum < target) return 0;
-    
-    new_target = sum - target;
-    
-    if (new_target % 2 == 1) return 0;
-    if (new_target == 0) return 1;
-    
-    new_target /= 2;
-    
-    dfs(numbers, new_target, 0, 0);
-    
+    int answer = 0;
+
+    DFS(numbers, target, numbers[0] , 1);
+    DFS(numbers, target, -numbers[0], 1);
+
+    answer = total;
+
     return answer;
 }

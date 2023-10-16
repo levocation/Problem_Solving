@@ -34,6 +34,8 @@ int solution(int k, vector<vector<int>> dungeons) {
         }
         
         if (i >= dungeons_size) {
+            // for문을 전부 돌고 나왔을 경우, 모든 던전을 도는 데 성공했으므로
+            // 이보다 던전을 많이 도는 경우의 수가 없으므로 break
             answer = i;
             break;
         }

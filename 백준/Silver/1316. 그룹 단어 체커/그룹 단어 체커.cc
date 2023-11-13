@@ -1,5 +1,4 @@
 #include <iostream>
-#include <set>
 
 using namespace std;
 
@@ -12,18 +11,20 @@ int main() {
     int n, count = 0;
     cin >> n;
     
-    set<char> s;
+    bool check[26] = {0,};
     
     while (n--) {
         cin >> str;
-        s.clear();
+        for (int i = 0; i < 26; i++) {
+            check[i] = 0;
+        }
         buffer = '-';
         
         for (char c : str) {
             if (buffer != c) {
-                if (s.find(c) == s.end()) {
+                if (!check[(int)(c - 'a')]) {
                     buffer = c;
-                    s.insert(c);
+                    check[(int)(c - 'a')] = true;
                 } else {
                     count--;
                     break;

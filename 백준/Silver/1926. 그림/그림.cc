@@ -10,10 +10,7 @@ int main() {
 
     int n, m;
     cin >> n >> m;
-    int** board = new int*[n];
-    for (int i = 0; i < n; i++) {
-        board[i] = new int[m];
-    }
+    int board[n][m];
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {

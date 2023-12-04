@@ -33,7 +33,6 @@ int main() {
     
     while (!q.empty()) {
         cur = q.front(); q.pop();
-        if (cur.X == 0) continue;
         if (cur.X == 100) {
             cout << cur.Y;
             break;
@@ -41,10 +40,10 @@ int main() {
         for (int i = 1; i <= 6; i++) {
             nx = cur.X + i;
             if (nx > 100) continue;
-            if (vst[nx]) continue;
-            q.push(make_pair(board[cur.X + i], cur.Y + 1));
+            if (vst[nx] || vst[board[nx]]) continue;
+            q.push(make_pair(board[nx], cur.Y + 1));
             vst[nx] = vst[cur.X] + 1;
-            if (board[cur.X + i] != cur.X + i) board[cur.X + i] = 0;
+            if (board[nx] != nx) board[nx] = 0;
         }
     }
     

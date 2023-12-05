@@ -14,6 +14,10 @@
 
 정확성: 100.0<br/>합계: 100.0 / 100.0
 
+### 제출 일자
+
+2023년 10월 2일 12:46:57
+
 ### 문제 설명
 
 <p>코니는 매일 다른 옷을 조합하여 입는것을 좋아합니다.</p>
@@ -101,4 +105,4 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
 <p>※ 공지 - 2023년 4월 21일 문제 지문이 리뉴얼되었습니다.</p>
 
 
-> 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+> 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges

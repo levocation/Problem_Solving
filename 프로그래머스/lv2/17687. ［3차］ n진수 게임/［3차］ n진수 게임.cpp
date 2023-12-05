@@ -15,7 +15,6 @@ string solution(int n, int t, int m, int p) {
         tmp_num = num;
         
         do {
-            
             switch (tmp_num % n) {
                 case 10:
                     tmp_str = "A" + tmp_str;

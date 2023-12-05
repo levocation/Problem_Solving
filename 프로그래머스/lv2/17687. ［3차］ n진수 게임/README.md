@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 4.22 MB, 시간: 1.02 ms
+메모리: 4.13 MB, 시간: 0.93 ms
 
 ### 구분
 
@@ -13,6 +13,10 @@
 ### 채점결과
 
 정확성: 100.0<br/>합계: 100.0 / 100.0
+
+### 제출 일자
+
+2023년 10월 3일 10:33:8
 
 ### 문제 설명
 
@@ -86,4 +90,4 @@
 <p><a href="http://tech.kakao.com/2017/11/14/kakao-blind-recruitment-round-3/" target="_blank" rel="noopener">해설 보러가기</a></p>
 
 
-> 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+> 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges

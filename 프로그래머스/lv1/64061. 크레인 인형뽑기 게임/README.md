@@ -14,6 +14,10 @@
 
 정확성: 100.0<br/>합계: 100.0 / 100.0
 
+### 제출 일자
+
+2023년 10월 4일 13:46:11
+
 ### 문제 설명
 
 <p>게임개발자인 "죠르디"는 크레인 인형뽑기 기계를 모바일 게임으로 만들려고 합니다.<br>
@@ -71,4 +75,4 @@
 <p><img src="https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/bb0f59c7-6b72-485a-8302-217fe53ea88f/crane_game_104.jpg" title="" alt="crane_game_104.jpg"></p>
 
 
-> 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+> 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges

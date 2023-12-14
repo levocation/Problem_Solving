@@ -1,5 +1,4 @@
 #include <iostream>
-#include <bitset>
 #include <string>
 
 using namespace std;
@@ -8,7 +7,7 @@ int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
     
-    bitset<20> bit(0);
+    unsigned int bit = 0;
     string str;
     int m, num;
     
@@ -17,20 +16,20 @@ int main() {
         cin >> str;
         if (str == "add") {
             cin >> num;
-            bit.set(num - 1, 1);
+            bit |= (1 << num);
         } else if (str == "remove") {
             cin >> num;
-            bit.set(num - 1, 0);
+            bit &= ~(1 << num);
         } else if (str == "check") {
             cin >> num;
-            cout << bit[num - 1] << '\n';
+            cout << (bit == (bit | (1 << num))) << '\n';
         } else if (str == "toggle") {
             cin >> num;
-            bit.flip(num - 1);
+            bit ^= (1 << num);
         } else if (str == "all") {
-            bit.set();
+            bit = 0 - 1;
         } else if (str == "empty") {
-            bit.reset();
+            bit = 0;
         }
     }
     

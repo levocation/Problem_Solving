@@ -9,34 +9,16 @@ int main() {
     int sum = 0, mx = -1;
     int n, m;
     cin >> n >> m;
-    int arr[n], vis[n] = {0,};
+    int arr[n];
     for (int i = 0; i < n; i++) cin >> arr[i];
     
     for (int i = 0; i < n; i++) {
-        if (vis[i]) continue;
-        vis[i] = 1;
-        sum += arr[i];
-        
-        for (int j = 0; j < n; j++) {
-            if (vis[j]) continue;
-            vis[j] = 1;
-            sum += arr[j];
-            
-            for (int k = 0; k < n; k++) {
-                if (vis[k]) continue;
-                vis[k] = 1;
-                sum += arr[k];
-                
+        for (int j = i+1; j < n; j++) {
+            for (int k = j+1; k < n; k++) {
+                sum = arr[i] + arr[j] + arr[k];
                 if (sum > mx && sum <= m) mx = sum;
-                
-                vis[k] = 0;
-                sum -= arr[k];
             }
-            vis[j] = 0;
-            sum -= arr[j];
         }
-        vis[i] = 0;
-        sum -= arr[i];
     }
     
     cout << mx;

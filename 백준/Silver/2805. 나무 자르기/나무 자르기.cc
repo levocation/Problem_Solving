@@ -8,7 +8,6 @@ using namespace std;
 int n, m;
 vector<int> v;
 
-
 ll get_wood_sum(int x) {
     ll sum = 0;
     for (int len : v) {

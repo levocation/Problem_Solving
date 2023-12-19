@@ -23,10 +23,7 @@ int main() {
             cout << "NO";
             break;
         }
-        if (v.empty()) {
-            v.push_back(++num);
-            ans.push_back('+');
-        } else if (v.back() != arr[idx]) {
+        if (v.empty() || v.back() != arr[idx]) {
             v.push_back(++num);
             ans.push_back('+');
         } else {

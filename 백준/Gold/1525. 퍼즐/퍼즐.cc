@@ -23,6 +23,7 @@ int main() {
     set<string> s;
     queue<pair<string, int>> q;
     q.push(cur);
+    s.insert(cur.first);
     
     int dx[4] = {0, 0, 1, -1};
     int dy[4] = {1, -1, 0, 0};

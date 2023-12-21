@@ -15,9 +15,8 @@ int main() {
     for (ll i = 2; i <= 4000000; i++) {
         if (!is_prime[i]) continue;
         for (ll j = i * i; j <= 4000000; j += i) is_prime[j] = false;
+        primes.push_back(i);
     }
-    for (int i = 2; i <= 4000000; i++)
-        if (is_prime[i]) primes.push_back(i);
     
     int n, ans = 0, sum = primes[0], len = primes.size();
     cin >> n;

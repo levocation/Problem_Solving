@@ -9,7 +9,7 @@ int solution(vector<vector<int> > land)
 {
     int answer = 0;
     
-    const int land_depth = (int)(land.size());
+    int land_depth = (int)(land.size());
     
     vector<vector<int>> dp(land_depth + 1, vector<int>(4, 0));
     

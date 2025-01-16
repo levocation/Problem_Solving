@@ -1,49 +1,47 @@
-#include <iostream>
-#include <list>
-#include <string>
-
+#include <bits/stdc++.h>
 using namespace std;
+
+list<char> l;
+
+void printPassword(string s) {
+    l = list<char>();
+    
+    auto cur = l.begin();
+    
+    for (char command : s) {
+        if (command == '<') {
+            if (cur != l.begin()) cur--;
+        } else if (command == '>') {
+            if (cur != l.end()) cur++;
+        } else if (command == '-') {
+            if (cur != l.begin()) {
+                cur--;
+                cur = l.erase(cur);
+            }
+        } else {
+            l.insert(cur, command);
+        }
+    }
+    
+    for (char c : l) {
+        cout << c;
+    }
+    cout << '\n';
+}
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
-
-    int n = 0;
-    cin >> n;
-
+    
+    int t;
     string s;
-
-    list<char> l;
-    auto cursor = l.end();
-
-
-    while (n--) {
+    
+    cin >> t;
+    
+    for (int i = 0; i < t; i++) {
         cin >> s;
-
-        l.clear();
-        cursor = l.end();
-        for (char c : s) {
-            if (c == '<') {
-                if (cursor != l.begin()) cursor--;
-            }
-            else if (c == '>') {
-                if (cursor != l.end()) cursor++;
-            }
-            else if (c == '-') {
-                if (cursor != l.begin()) {
-                    cursor--;
-                    cursor = l.erase(cursor);
-                }
-            }
-            else {
-                l.insert(cursor, c);
-            }
-        }
-        for (char c : l) {
-            cout << c;
-        }
-        cout << '\n';
+        printPassword(s);
     }
-
+    
     return 0;
 }

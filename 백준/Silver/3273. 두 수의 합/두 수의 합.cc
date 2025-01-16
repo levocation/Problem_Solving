@@ -1,33 +1,29 @@
-#include <iostream>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
-
-    int n[2000001] = {0,};
     
-    int tmp = 0, count = 0, answer = 0, target = 0;
-    cin >> count;
-    int *arr = new int[count];
+    int n, x, res = 0;
+    cin >> n;
     
-    for (int i = 0; i < count; i++) {
-        cin >> tmp;
-        arr[i] = tmp;
-    }
-    cin >> target;
+    vector<int> arr(n, 0);
+    vector<bool> v(1000001, false);
     
-    for (int i = 0; i < count; i++) {
-        if (target - arr[i] < 0) continue;
-        if (n[target - arr[i]]) {
-            answer++;
-        } else {
-            n[arr[i]] = 1;
-        }
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
     
-    cout << answer;
+    cin >> x;
+    
+    for (int num : arr) {
+        if (x - num < 0) continue;
+        if (v[x - num]) res++;
+        v[num] = true;
+    }
+    
+    cout << res;
     
     return 0;
 }

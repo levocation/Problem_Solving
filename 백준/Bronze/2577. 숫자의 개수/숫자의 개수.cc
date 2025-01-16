@@ -1,25 +1,23 @@
-#include <iostream>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
     
-    long long sum = 0;
-    int a = 0, b = 0, c = 0;
+    int a, b, c, res;
+    int arr[10] = {0, };
     
     cin >> a >> b >> c;
-    sum = a * b * c;
-    int arr[10] = {0,};
+    res = a * b * c;
     
-    while (sum != 0) {
-        arr[sum % 10]++;
-        sum /= 10;
+    while (res != 0) {
+        arr[res % 10]++;
+        res /= 10;
     }
     
-    for (int i : arr) {
-        cout << i << '\n';
+    for (int i = 0; i < 10; i++) {
+        cout << arr[i] << '\n';
     }
     
     return 0;

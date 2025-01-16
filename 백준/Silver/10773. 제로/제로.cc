@@ -1,28 +1,26 @@
-#include <iostream>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
-
-    vector<int> v;
-    long long sum = 0, k, num;
     
-    cin >> k;
+    stack<int> s;
+    int len, input;
     
-    while (k--) {
-        cin >> num;
+    cin >> len;
+    
+    for (int i = 0; i < len; i++) {
+        cin >> input;
         
-        if (num) {
-            sum += num;
-            v.push_back(num);
-        } else {
-            sum -= v.back();
-            v.pop_back();
-            
-        }
+        if (input == 0) s.pop();
+        else s.push(input);
+    }
+    
+    int sum = 0;
+    while (!s.empty()) {
+        sum += s.top();
+        s.pop();
     }
     
     cout << sum;

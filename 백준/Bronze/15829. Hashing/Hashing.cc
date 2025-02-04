@@ -4,6 +4,15 @@
 
 using namespace std;
 
+ll powerful(int n) {
+    ll val = 1;
+    for (int i = 0; i < n; i++) {
+        val = (val * 31) % 1234567891;
+    }
+
+    return val;
+}
+
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
@@ -15,7 +24,7 @@ int main() {
     cin >> len >> input;
 
     for (int i = 0; i < len; i++) {
-        res += (input[i] - 'a' + 1) * (ll)(pow(31, i));
+        res += (input[i] - 'a' + 1) * powerful(i);
     }
 
     cout << res % 1234567891;

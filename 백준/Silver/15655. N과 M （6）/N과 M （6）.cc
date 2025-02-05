@@ -1,48 +1,46 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int n, m;
-vector<int> arr;
-vector<int> vst;
-vector<int> v;
+int n, m, idx;
 
-void func(int depth, int num) {
-    if (depth >= m) {
-        for (int i : v) {
-            cout << i << ' ';
+int num[10];
+int arr[10];
+int isused[10];
+
+void func(int k) {
+    if (k == m) {
+        for (int i = 0; i < k; i++) {
+            cout << arr[i] << ' ';
         }
         cout << '\n';
         return;
     }
-    
-    for (int i = 0; i < n; i++) {
-        if (vst[i] == 1) continue;
-        if (num > arr[i]) continue;
-        
-        vst[i] = 1;
-        v.push_back(arr[i]);
-        
-        func(depth + 1, arr[i]);
-        
-        vst[i] = 0;
-        v.pop_back();
+
+    for (int i = idx; i < n; i++) {
+        if (!isused[i]) {
+            arr[k] = num[i];
+            isused[i] = 1;
+            idx = i;
+            func(k+1);
+            isused[i] = 0;
+            arr[k] = 0;
+        }
     }
 }
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
-    
+
     cin >> n >> m;
-    arr = vector<int>(n);
-    vst = vector<int>(n, 0);
-    for (int i = 0; i < n; i++) cin >> arr[i];
-    sort(arr.begin(), arr.end());
-    
-    func(0, -1);
+    for (int i = 0; i < n; i++) {
+        cin >> num[i];
+    }
+
+    sort(num, num + n);
+
+    func(0);
     
     return 0;
 }

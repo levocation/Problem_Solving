@@ -1,23 +1,24 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int* arr;
 int n, m;
 
-void func(int k) {
+int arr[10];
 
+void func(int k) {
     if (k == m) {
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i < k; i++) {
             cout << arr[i] << ' ';
         }
         cout << '\n';
         return;
     }
 
-    for (int i = 0; i < n; i++) {
-        arr[k] = i + 1;
-        func(k + 1);
+    for (int i = 1; i <= n; i++) {
+        arr[k] = i;
+        func(k+1);
+        arr[k] = 0;
     }
 }
 
@@ -26,9 +27,8 @@ int main() {
     cin.tie(0);
 
     cin >> n >> m;
-    arr = new int[m];
 
     func(0);
-
+    
     return 0;
 }

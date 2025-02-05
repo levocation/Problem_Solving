@@ -1,42 +1,40 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int n, m;
-vector<int> arr;
-vector<int> temp;
+int n, m, idx;
 
-void backtracking(int num) {
-	if (num >= m) {
-		for (int i = 0; i < m; i++) {
-			cout << temp[i] << ' ';
-		}
-		cout << '\n';
-		return;
-	}
+int num[10];
+int arr[10];
 
-	for (int i = 0; i < n; i++) {
-		temp.push_back(arr[i]);
-		backtracking(num + 1);
-		temp.pop_back();
-	}
+void func(int k) {
+    if (k == m) {
+        for (int i = 0; i < k; i++) {
+            cout << arr[i] << ' ';
+        }
+        cout << '\n';
+        return;
+    }
 
+    for (int i = 0; i < n; i++) {
+        arr[k] = num[i];
+        func(k+1);
+        arr[k] = 0;
+    }
 }
 
 int main() {
-	
-	cin >> n >> m;
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
-	arr = vector<int>(n, 0);
-	for (int i = 0; i < n; i++) {
-		cin >> arr[i];
-	}
+    cin >> n >> m;
+    for (int i = 0; i < n; i++) {
+        cin >> num[i];
+    }
 
-	sort(arr.begin(), arr.end());
+    sort(num, num + n);
 
-	backtracking(0);
-
-	return 0;
+    func(0);
+    
+    return 0;
 }

@@ -1,45 +1,46 @@
-#include <iostream>
-#include <vector>
-#include <queue>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
-    
-    int n, m, x, y, ans = 0;
-    cin >> n >> m;
-    
-    vector<int> adj[n + 1];
-    vector<int> vst(n + 1, 0);
-    
-    while (m--) {
-        cin >> x >> y;
-        adj[x].push_back(y);
-        adj[y].push_back(x);
+
+    int v, e, cnt = 0;
+    cin >> v >> e;
+
+    vector<vector<int>> graph(v + 1, vector<int>(v + 1, 0));
+    vector<int> vis(v + 1, 0);
+
+    for (int i = 0; i < e; i++) {
+        int st, en;
+        cin >> st >> en;
+        graph[st][en] = 1;
+        graph[en][st] = 1;
     }
-    
+
     queue<int> q;
-    int cur;
-    
-    for (int i = 1; i <= n; i++) {
-        if (vst[i]) continue;
-        vst[i] = 1;
+
+    for (int i = 1; i <= v; i++) {
+        if (vis[i]) continue;
+        cnt++;
         q.push(i);
-        
+        vis[i] = true;
+
         while (!q.empty()) {
-            cur = q.front(); q.pop();
-            for (int nxt : adj[cur]) {
-                if (vst[nxt]) continue;
-                vst[nxt] = 1;
-                q.push(nxt);
+            int cur = q.front();
+            q.pop();
+
+            for (int nxt = 1; nxt <= v; nxt++) {
+                if (graph[cur][nxt] && !vis[nxt]) {
+                    q.push(nxt);
+                    vis[nxt] = true;
+                }
             }
         }
-        ans++;
     }
-    
-    cout << ans;
+
+    cout << cnt;
     
     return 0;
 }

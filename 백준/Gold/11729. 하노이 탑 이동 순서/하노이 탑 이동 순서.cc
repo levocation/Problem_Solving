@@ -1,25 +1,28 @@
-#include <iostream>
+#include <bits/stdc++.h>
+#define ll long long
 
 using namespace std;
 
-void func(int a, int b, int n) {
+void recursion(int a, int b, int n) {
     if (n == 1) {
         cout << a << ' ' << b << '\n';
         return;
     }
-    func(a, 6-a-b, n - 1);
+
+    recursion(a, 6-a-b, n-1);
     cout << a << ' ' << b << '\n';
-    func(6-a-b, b, n - 1);
+    recursion(6-a-b, b, n-1);
 }
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
     
-    int t;
-    cin >> t;
-    cout << (1 << t) - 1 << '\n';
-    func(1, 3, t);
+    ll n;
+    cin >> n;
+
+    cout << (1<<n) - 1 << '\n';
+    recursion(1, 3, n);
     
     return 0;
 }
